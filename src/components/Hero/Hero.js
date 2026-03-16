@@ -75,10 +75,10 @@ function Hero() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      goToSlide(currentSlide + 1);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [currentSlide, slides.length]);
+  }, [slides.length]);
 
   return (
     <section className="hero">
