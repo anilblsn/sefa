@@ -22,13 +22,13 @@ const QUICK_LINKS_EN = [
 
 const CONTENT = {
   tr: {
-    tagline: '21 yıl',
+    tagline: '',
     about: 'Sefa İnşaat 2005 yılından bu yana dürüstlük ilkesini prensip edinerek, marka olmanın bilinci ve sorumluluğu ile sağlam adımlarla yürümektedir.',
     quickMenu: 'HIZLI MENÜ',
     headOffice: 'MERKEZ OFİS',
   },
   en: {
-    tagline: '21 years',
+    tagline: '',
     about: 'Since 2005, Sefa Construction has been moving forward with steady steps, adopting integrity as a principle and with the awareness and responsibility of being a brand.',
     quickMenu: 'QUICK MENU',
     headOffice: 'HEAD OFFICE',
@@ -49,7 +49,7 @@ function Footer() {
           <div className="footer__logo">
             <span className="footer__logo-main">SEFA</span>
             <span className="footer__logo-sub">İNŞAAT</span>
-            <span className="footer__logo-tagline">{t.tagline}</span>
+            {t.tagline ? <span className="footer__logo-tagline">{t.tagline}</span> : null}
           </div>
           <p className="footer__about">
             {t.about}
