@@ -93,7 +93,7 @@ function OneCikanProjeler() {
         ))}
       </div>
       <div className="onecikan-projeler__actions">
-        <a href={lang === 'en' ? '/tamamlanan-projeler?lang=en' : '#projeler'} className="onecikan-projeler__btn">
+        <a href={lang === 'en' ? '/tamamlanan-projeler?lang=en' : '/tamamlanan-projeler'} className="onecikan-projeler__btn">
           {c.btn}
         </a>
       </div>
