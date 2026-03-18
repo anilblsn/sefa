@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import logoImg from '../../assets/logo/logo2.png';
 import './Navbar.css';
@@ -9,6 +9,8 @@ function Navbar() {
   const [searchParams] = useSearchParams();
   const lang = searchParams.get('lang') || 'tr';
   const pathWithLang = (l) => `${location.pathname}${l === 'tr' ? '' : '?lang=en'}`;
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -16,6 +18,24 @@ function Navbar() {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!langOpen) return;
+    const onPointerDown = (e) => {
+      if (!langRef.current) return;
+      if (langRef.current.contains(e.target)) return;
+      setLangOpen(false);
+    };
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setLangOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [langOpen]);
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
@@ -67,24 +87,48 @@ function Navbar() {
           </li>
         </ul>
 
-        <div className="navbar__lang">
-          <Link
-            to={pathWithLang('tr')}
-            className={`navbar__lang-link ${lang !== 'en' ? 'navbar__lang-link--active' : ''}`}
-            aria-label="Türkçe"
+        <div ref={langRef} className="navbar__lang">
+          <button
+            type="button"
+            className={`navbar__lang-trigger ${langOpen ? 'navbar__lang-trigger--open' : ''}`}
+            onClick={() => setLangOpen((v) => !v)}
+            aria-haspopup="menu"
+            aria-expanded={langOpen}
+            aria-label={lang === 'en' ? 'Language menu' : 'Dil menüsü'}
           >
-            <span className="navbar__lang-flag" role="img">🇹🇷</span>
-            <span>TÜRKÇE</span>
-          </Link>
-          <span className="navbar__lang-sep">|</span>
-          <Link
-            to={pathWithLang('en')}
-            className={`navbar__lang-link ${lang === 'en' ? 'navbar__lang-link--active' : ''}`}
-            aria-label="English"
-          >
-            <span className="navbar__lang-flag" role="img">🇬🇧</span>
-            <span>ENGLISH</span>
-          </Link>
+            {lang === 'en' ? (
+              <span className="navbar__lang-abbr" aria-hidden="true">EN</span>
+            ) : (
+              <span className="navbar__lang-flag" role="img">🇹🇷</span>
+            )}
+            <span>{lang === 'en' ? 'ENGLISH' : 'TÜRKÇE'}</span>
+            <span className="navbar__lang-caret" aria-hidden="true">▾</span>
+          </button>
+
+          {langOpen && (
+            <div className="navbar__lang-menu" role="menu" aria-label={lang === 'en' ? 'Language options' : 'Dil seçenekleri'}>
+              <Link
+                to={pathWithLang('tr')}
+                className={`navbar__lang-option ${lang !== 'en' ? 'navbar__lang-option--active' : ''}`}
+                role="menuitem"
+                onClick={() => setLangOpen(false)}
+                aria-label="Türkçe"
+              >
+                <span className="navbar__lang-flag" role="img">🇹🇷</span>
+                <span>TÜRKÇE</span>
+              </Link>
+              <Link
+                to={pathWithLang('en')}
+                className={`navbar__lang-option ${lang === 'en' ? 'navbar__lang-option--active' : ''}`}
+                role="menuitem"
+                onClick={() => setLangOpen(false)}
+                aria-label="English"
+              >
+                <span className="navbar__lang-abbr" aria-hidden="true">EN</span>
+                <span>ENGLISH</span>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>

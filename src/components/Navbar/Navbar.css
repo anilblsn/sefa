@@ -100,9 +100,9 @@
 }
 
 .navbar__lang {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -110,31 +110,83 @@
   text-transform: uppercase;
 }
 
-.navbar__lang-link {
+.navbar__lang-trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   text-decoration: none;
   padding: 0.25rem 0.4rem;
-  border-radius: 2px;
-  transition: color 0.2s ease, background 0.2s ease;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  line-height: 1.2;
 }
 
-.navbar__lang-link:hover {
+.navbar__lang-trigger:hover {
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.navbar__lang-link--active {
-  color: #ef7f1a;
+.navbar__lang-trigger--open {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.navbar__lang-sep {
-  opacity: 0.5;
-  user-select: none;
+.navbar__lang-caret {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-left: 0.1rem;
 }
 
 .navbar__lang-flag {
   font-size: 1rem;
   line-height: 1;
+}
+
+.navbar__lang-abbr {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: #fff;
+}
+
+.navbar__lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  z-index: 1200;
+  padding: 0.35rem;
+  backdrop-filter: blur(6px);
+}
+
+.navbar__lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navbar__lang-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.navbar__lang-option--active {
+  color: #ef7f1a;
 }
