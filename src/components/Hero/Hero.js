@@ -1,71 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Hero.css';
-import heroImage1 from '../../assets/forhero/1.jpg';
-import heroImage2 from '../../assets/forhero/2.jpg';
-import heroImage3 from '../../assets/forhero/3.jpg';
 
-const HERO_SLIDES_TR = [
-  {
-    image: heroImage1,
-    badge: '21 Yıl',
-    title: 'Sefa İnşaat',
-    description:
-      '2023 yılında anahtar teslimi yapılan Sefa İnşaat, toplam 3 blok ve 195 daireden oluşuyor. İçinde gri su sistemi teknolojisini barındıran Sefa İnşaat\'ın sosyal tesislerinin yanı sıra, kapalı otoparkı, özel tahsisli depolan, barbekü alanı, elektrikli şarj istasyonu bulunuyor.',
-    ctaLabel: 'İNCELE',
-  },
-  {
-    image: heroImage2,
-    badge: '21 Yıl',
-    title: 'Sefa İnşaat',
-    description:
-      '2023 yılında anahtar teslimi yapılan Sefa İnşaat, toplam 3 blok ve 195 daireden oluşuyor. İçinde gri su sistemi teknolojisini barındıran Sefa İnşaat\'ın sosyal tesislerinin yanı sıra, kapalı otoparkı, özel tahsisli depolan, barbekü alanı, elektrikli şarj istasyonu bulunuyor.',
-    ctaLabel: 'İNCELE',
-  },
-  {
-    image: heroImage3,
-    badge: '21 Yıl',
-    title: 'Sefa İnşaat',
-    description:
-      '2023 yılında anahtar teslimi yapılan Sefa İnşaat, toplam 3 blok ve 195 daireden oluşuyor. İçinde gri su sistemi teknolojisini barındıran Sefa İnşaat\'ın sosyal tesislerinin yanı sıra, kapalı otoparkı, özel tahsisli depolan, barbekü alanı, elektrikli şarj istasyonu bulunuyor.',
-    ctaLabel: 'İNCELE',
-  },
-];
+const imageContext = require.context(
+  '../../assets/tamamlananprojects',
+  true,
+  /\.(jpe?g|png|JPE?G|PNG)$/
+);
 
-const HERO_SLIDES_EN = [
-  {
-    image: heroImage1,
-    badge: '21 Years',
-    title: 'Sefa İnşaat',
-    description:
-      'Sefa Construction, delivered in 2023, consists of 3 blocks and 195 units. Along with social facilities that include greywater system technology, it features covered parking, dedicated storage, barbecue area and electric charging stations.',
-    ctaLabel: 'DISCOVER',
+function getProjectsFromContext() {
+  const keys = imageContext.keys();
+  const byFolder = {};
+  keys.forEach((key) => {
+    const path = key.slice(2);
+    const folder = path.split('/')[0];
+    if (!byFolder[folder]) byFolder[folder] = [];
+    byFolder[folder].push({ path: key, fullPath: path });
+  });
+
+  const folders = Object.keys(byFolder).sort((a, b) => {
+    const nA = parseInt(a.match(/^(\d+)/)?.[1] || '0', 10);
+    const nB = parseInt(b.match(/^(\d+)/)?.[1] || '0', 10);
+    return nA - nB;
+  });
+
+  return folders.map((folder) => {
+    const files = byFolder[folder].sort((a, b) => a.fullPath.localeCompare(b.fullPath));
+    const preferred = files.find((f) => /[/\\]0\.(jpg|jpeg|png)$/i.test(f.fullPath));
+    const imageKey = preferred ? preferred.path : files[0].path;
+    const name = folder.replace(/^\d+\s*-\s*/, '').trim();
+    return {
+      id: folder,
+      number: parseInt(folder.match(/^(\d+)/)?.[1] || '0', 10),
+      name,
+      image: imageContext(imageKey),
+    };
+  });
+}
+
+const CONTENT = {
+  tr: {
+    badge: 'Tamamlanan Proje',
+    ctaLabel: 'TÜMÜNÜ GÖR',
   },
-  {
-    image: heroImage2,
-    badge: '21 Years',
-    title: 'Sefa İnşaat',
-    description:
-      'Sefa Construction, delivered in 2023, consists of 3 blocks and 195 units. Along with social facilities that include greywater system technology, it features covered parking, dedicated storage, barbecue area and electric charging stations.',
-    ctaLabel: 'DISCOVER',
+  en: {
+    badge: 'Completed Project',
+    ctaLabel: 'VIEW ALL',
   },
-  {
-    image: heroImage3,
-    badge: '21 Years',
-    title: 'Sefa İnşaat',
-    description:
-      'Sefa Construction, delivered in 2023, consists of 3 blocks and 195 units. Along with social facilities that include greywater system technology, it features covered parking, dedicated storage, barbecue area and electric charging stations.',
-    ctaLabel: 'DISCOVER',
-  },
-];
+};
 
 const ARIA = { tr: { prev: 'Önceki', next: 'Sonraki' }, en: { prev: 'Previous', next: 'Next' } };
 
 function Hero() {
   const [searchParams] = useSearchParams();
   const lang = searchParams.get('lang') === 'en' ? 'en' : 'tr';
-  const slides = lang === 'en' ? HERO_SLIDES_EN : HERO_SLIDES_TR;
+  const c = CONTENT[lang];
   const aria = ARIA[lang];
+
+  const slides = useMemo(() => {
+    const all = getProjectsFromContext();
+    const order = [1, 3, 14, 2, 7, 12];
+    const byNumber = new Map();
+    all.forEach((p) => {
+      if (!byNumber.has(p.number)) byNumber.set(p.number, p);
+    });
+    return order
+      .map((n) => byNumber.get(n))
+      .filter(Boolean)
+      .map((p) => ({
+        image: p.image,
+        badge: c.badge,
+        title: p.name,
+        description: '',
+        ctaLabel: c.ctaLabel,
+      }));
+  }, [c.badge, c.ctaLabel]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -96,8 +105,8 @@ function Hero() {
             <span className="hero__badge">{slide.badge}</span>
             <div className="hero__content">
               <h1 className="hero__title">{slide.title}</h1>
-              <p className="hero__description">{slide.description}</p>
-              <a href={lang === 'en' ? '/hakkimizda?lang=en' : '#incele'} className="hero__cta">
+              {slide.description ? <p className="hero__description">{slide.description}</p> : null}
+              <a href={lang === 'en' ? '/tamamlanan-projeler?lang=en' : '/tamamlanan-projeler'} className="hero__cta">
                 {slide.ctaLabel}
               </a>
             </div>
