@@ -84,6 +84,21 @@ const ICON_GLOBE = (
   </svg>
 );
 
+const ICON_INSTAGRAM = (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+    <path d="M16 11.37a4 4 0 1 1-7.88 1.26 4 4 0 0 1 7.88-1.26z" />
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+  </svg>
+);
+
+const ICON_YOUTUBE = (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+    <polygon points="10 15 15 12 10 9 10 15" />
+  </svg>
+);
+
 function IletisimSayfaIcerik({ lang = 'tr' }) {
   const t = CONTENT[lang];
   const projeOptions = lang === 'en' ? PROJE_OPTIONS_EN : PROJE_OPTIONS_TR;
@@ -164,6 +179,24 @@ function IletisimSayfaIcerik({ lang = 'tr' }) {
                 <strong className="iletisim-sayfa-icerik__label">{t.web}</strong>
                 <p className="iletisim-sayfa-icerik__value">
                   <a href="http://www.sefainsaat.com.tr/" target="_blank" rel="noopener noreferrer" className="iletisim-sayfa-icerik__link">www.sefainsaat.com.tr</a>
+                </p>
+              </div>
+            </li>
+            <li className="iletisim-sayfa-icerik__item">
+              <span className="iletisim-sayfa-icerik__icon">{ICON_INSTAGRAM}</span>
+              <div>
+                <strong className="iletisim-sayfa-icerik__label">Instagram</strong>
+                <p className="iletisim-sayfa-icerik__value">
+                  <a href="https://www.instagram.com/sefa_insaat/" target="_blank" rel="noopener noreferrer" className="iletisim-sayfa-icerik__link">@sefa_insaat</a>
+                </p>
+              </div>
+            </li>
+            <li className="iletisim-sayfa-icerik__item">
+              <span className="iletisim-sayfa-icerik__icon">{ICON_YOUTUBE}</span>
+              <div>
+                <strong className="iletisim-sayfa-icerik__label">YouTube</strong>
+                <p className="iletisim-sayfa-icerik__value">
+                  <a href="https://www.youtube.com/@sefainsaatproje" target="_blank" rel="noopener noreferrer" className="iletisim-sayfa-icerik__link">@sefainsaatproje</a>
                 </p>
               </div>
             </li>
