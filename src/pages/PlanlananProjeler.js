@@ -17,8 +17,8 @@ const CONTENT = {
   tr: {
     bannerTitle: 'Planlanan Projeler',
     kartal: {
-      title: 'Evınpark Kartal',
-      description: 'Evınpark Kartal projesi; konumu ve yaşam alanlarıyla öne çıkan planlanan bir projedir.',
+      title: 'EVİNPARK Kartal',
+      description: 'EVİNPARK Kartal projesi; konumu ve yaşam alanlarıyla öne çıkan planlanan bir projedir.',
       details: [
         { icon: 'building', label: 'İnşaat Alanı', value: '—' },
         { icon: 'ruler', label: 'Proje alanı', value: '—' },
@@ -29,8 +29,8 @@ const CONTENT = {
       ],
     },
     cekmekoy: {
-      title: 'Evınpark Çekmeköy',
-      description: 'Evınpark Çekmeköy projesi; planlama aşamasında olan yeni projemizdir. Detaylar yakında güncellenecektir.',
+      title: 'EVİNPARK Çekmeköy',
+      description: 'EVİNPARK Çekmeköy projesi; planlama aşamasında olan yeni projemizdir. Detaylar yakında güncellenecektir.',
       details: [
         { icon: 'building', label: 'İnşaat Alanı', value: '—' },
         { icon: 'ruler', label: 'Proje alanı', value: '—' },
@@ -44,8 +44,8 @@ const CONTENT = {
   en: {
     bannerTitle: 'Planned Projects',
     kartal: {
-      title: 'Evınpark Kartal',
-      description: 'Evınpark Kartal is a planned project that stands out with its location and living spaces.',
+      title: 'EVİNPARK Kartal',
+      description: 'EVİNPARK Kartal is a planned project that stands out with its location and living spaces.',
       details: [
         { icon: 'building', label: 'Construction Area', value: '—' },
         { icon: 'ruler', label: 'Project Area', value: '—' },
@@ -56,8 +56,8 @@ const CONTENT = {
       ],
     },
     cekmekoy: {
-      title: 'Evınpark Çekmeköy',
-      description: 'Evınpark Çekmeköy is our new project currently in the planning stage. Details will be updated soon.',
+      title: 'EVİNPARK Çekmeköy',
+      description: 'EVİNPARK Çekmeköy is our new project currently in the planning stage. Details will be updated soon.',
       details: [
         { icon: 'building', label: 'Construction Area', value: '—' },
         { icon: 'ruler', label: 'Project Area', value: '—' },

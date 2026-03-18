@@ -18,14 +18,14 @@ import harput2 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/2.jpg';
 import harput3 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/3.jpg';
 import harput4 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/4.jpg';
 
-const EVINPARK_IMAGES = [evinpark0, evinpark1, evinpark2, evinpark3, evinpark4];
+const EVİNPARK_IMAGES = [evinpark0, evinpark1, evinpark2, evinpark3, evinpark4];
 const HARPUT_IMAGES = [harput0, harput1, harput2, harput3, harput4];
 
 const CONTENT = {
   tr: {
     bannerTitle: 'Satışı Devam Eden Projeler',
     evinpark: {
-      title: 'Evınpark Orman',
+      title: 'EVİNPARK Orman',
       description: 'Doğayla iç içe, %70 peyzaj ve yeşil alan oranıyla villalar; çatı terasları, hobi bahçeleri ve geniş bahçe alanlarıyla konforlu bir yaşam sunar.',
       details: [
         { icon: 'building', label: 'İnşaat Alanı', value: '2880,95 m²' },
@@ -38,8 +38,8 @@ const CONTENT = {
       ],
     },
     harput: {
-      title: 'Evınpark Harput',
-      description: 'Evınpark Harput projesi; konumu, konforu ve yaşam alanlarıyla öne çıkan bir projedir.',
+      title: 'EVİNPARK Harput',
+      description: 'EVİNPARK Harput projesi; konumu, konforu ve yaşam alanlarıyla öne çıkan bir projedir.',
       details: [
         { icon: 'building', label: 'İnşaat Alanı', value: '—' },
         { icon: 'ruler', label: 'Proje alanı', value: '—' },
@@ -54,7 +54,7 @@ const CONTENT = {
   en: {
     bannerTitle: 'Ongoing Sales Projects',
     evinpark: {
-      title: 'Evınpark Orman',
+      title: 'EVİNPARK Orman',
       description: 'Villas surrounded by nature with 70% landscaping and green area; offering a comfortable lifestyle with roof terraces, hobby gardens and spacious garden areas.',
       details: [
         { icon: 'building', label: 'Construction Area', value: '2,880.95 m²' },
@@ -67,8 +67,8 @@ const CONTENT = {
       ],
     },
     harput: {
-      title: 'Evınpark Harput',
-      description: 'Evınpark Harput stands out with its location, comfort and living spaces.',
+      title: 'EVİNPARK Harput',
+      description: 'EVİNPARK Harput stands out with its location, comfort and living spaces.',
       details: [
         { icon: 'building', label: 'Construction Area', value: '—' },
         { icon: 'ruler', label: 'Project Area', value: '—' },
@@ -98,7 +98,7 @@ function SatisiDevamEdenProjeler() {
         <ProjeDetay
           developer="Sefa İnşaat"
           title={c.evinpark.title}
-          images={EVINPARK_IMAGES}
+          images={EVİNPARK_IMAGES}
           details={c.evinpark.details}
           description={c.evinpark.description}
           websiteUrl="#"

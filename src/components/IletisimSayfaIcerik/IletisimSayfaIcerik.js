@@ -3,19 +3,19 @@ import './IletisimSayfaIcerik.css';
 
 const PROJE_OPTIONS_TR = [
   { value: '', label: 'Proje Seçiniz' },
-  { value: 'evınpark-orman', label: 'Evınpark Orman' },
-  { value: 'evınpark-harput', label: 'Evınpark Harput' },
-  { value: 'evınpark-kartal', label: 'Evınpark Kartal' },
-  { value: 'evınpark-cekmekoy', label: 'Evınpark Çekmeköy' },
+  { value: 'evinpark-orman', label: 'EVİNPARK Orman' },
+  { value: 'evinpark-harput', label: 'EVİNPARK Harput' },
+  { value: 'evinpark-kartal', label: 'EVİNPARK Kartal' },
+  { value: 'evinpark-cekmekoy', label: 'EVİNPARK Çekmeköy' },
   { value: 'diger', label: 'Diğer' },
 ];
 
 const PROJE_OPTIONS_EN = [
   { value: '', label: 'Select Project' },
-  { value: 'evınpark-orman', label: 'Evınpark Orman' },
-  { value: 'evınpark-harput', label: 'Evınpark Harput' },
-  { value: 'evınpark-kartal', label: 'Evınpark Kartal' },
-  { value: 'evınpark-cekmekoy', label: 'Evınpark Çekmeköy' },
+  { value: 'evinpark-orman', label: 'EVİNPARK Orman' },
+  { value: 'evinpark-harput', label: 'EVİNPARK Harput' },
+  { value: 'evinpark-kartal', label: 'EVİNPARK Kartal' },
+  { value: 'evinpark-cekmekoy', label: 'EVİNPARK Çekmeköy' },
   { value: 'diger', label: 'Other' },
 ];
 
