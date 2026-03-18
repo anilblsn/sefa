@@ -30,20 +30,13 @@
   margin-bottom: 1.25rem;
 }
 
-.footer__logo-main {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.footer__logo-sub {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.footer__logo-img {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer__logo-tagline {

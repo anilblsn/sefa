@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import logoImg from '../../assets/logo/logo2.png';
 import './Footer.css';
 
 const QUICK_LINKS_TR = [
@@ -47,8 +48,7 @@ function Footer() {
       <div className="footer__inner">
         <div className="footer__col footer__col--brand">
           <div className="footer__logo">
-            <span className="footer__logo-main">SEFA</span>
-            <span className="footer__logo-sub">İNŞAAT</span>
+            <img src={logoImg} alt="Sefa İnşaat" className="footer__logo-img" />
             {t.tagline ? <span className="footer__logo-tagline">{t.tagline}</span> : null}
           </div>
           <p className="footer__about">
