@@ -18,8 +18,11 @@ import harput2 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/2.jpg';
 import harput3 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/3.jpg';
 import harput4 from '../assets/devamedenprojects/2- EVİNPARK HARPUT/4.jpg';
 
+import cekmekoy0 from '../assets/planlananprojects/2-EVİNPARK ÇEKMEKÖY/0.jpg';
+
 const EVİNPARK_IMAGES = [evinpark0, evinpark1, evinpark2, evinpark3, evinpark4];
 const HARPUT_IMAGES = [harput0, harput1, harput2, harput3, harput4];
+const CEKMEKOY_IMAGES = [cekmekoy0];
 
 const CONTENT = {
   tr: {
@@ -50,6 +53,19 @@ const CONTENT = {
         { icon: 'calendar', label: 'İskan tarihi', value: '—' },
       ],
     },
+    cekmekoy: {
+      title: 'EVİNPARK Çekmeköy',
+      description: 'EVİNPARK Çekmeköy projesi; satışı devam eden projelerimiz arasındadır.',
+      details: [
+        { icon: 'building', label: 'İnşaat Alanı', value: '—' },
+        { icon: 'ruler', label: 'Proje alanı', value: '—' },
+        { icon: 'calendar', label: 'Ruhsat Tarihi', value: '—' },
+        { icon: 'house', label: 'Konut sayısı', value: '—' },
+        { icon: 'house', label: 'Konut tipleri', value: '—' },
+        { icon: 'calendar', label: 'Teslim Tarihi', value: '—' },
+        { icon: 'calendar', label: 'İskan tarihi', value: '—' },
+      ],
+    },
   },
   en: {
     bannerTitle: 'Ongoing Sales Projects',
@@ -75,6 +91,19 @@ const CONTENT = {
         { icon: 'calendar', label: 'Permit Date', value: '—' },
         { icon: 'house', label: 'Number of Villas', value: '—' },
         { icon: 'house', label: 'Villa Types', value: '—' },
+        { icon: 'calendar', label: 'Delivery Date', value: '—' },
+        { icon: 'calendar', label: 'Occupancy Date', value: '—' },
+      ],
+    },
+    cekmekoy: {
+      title: 'EVİNPARK Çekmeköy',
+      description: 'EVİNPARK Çekmeköy is among our ongoing sales projects.',
+      details: [
+        { icon: 'building', label: 'Construction Area', value: '—' },
+        { icon: 'ruler', label: 'Project Area', value: '—' },
+        { icon: 'calendar', label: 'Permit Date', value: '—' },
+        { icon: 'house', label: 'Number of Units', value: '—' },
+        { icon: 'house', label: 'Unit Types', value: '—' },
         { icon: 'calendar', label: 'Delivery Date', value: '—' },
         { icon: 'calendar', label: 'Occupancy Date', value: '—' },
       ],
@@ -109,6 +138,14 @@ function SatisiDevamEdenProjeler() {
           images={HARPUT_IMAGES}
           details={c.harput.details}
           description={c.harput.description}
+          websiteUrl="#"
+        />
+        <ProjeDetay
+          developer="Sefa İnşaat"
+          title={c.cekmekoy.title}
+          images={CEKMEKOY_IMAGES}
+          details={c.cekmekoy.details}
+          description={c.cekmekoy.description}
           websiteUrl="#"
         />
       </main>
