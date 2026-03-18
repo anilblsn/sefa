@@ -48,7 +48,7 @@
 .tamamlanan-projeler__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   max-width: 1600px;
   margin: 0 auto 0 0;
 }
