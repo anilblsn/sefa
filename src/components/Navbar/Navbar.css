@@ -73,13 +73,13 @@
   right: -6px;
   bottom: 0;
   height: 3px;
-  background-color: #E0C097;
+  background-color: #ef7f1a;
   transform: scaleX(0);
   transition: transform 0.2s ease;
 }
 
 .navbar__link:hover {
-  color: #E0C097;
+  color: #ef7f1a;
 }
 
 .navbar__link:hover::after {
@@ -87,7 +87,7 @@
 }
 
 .navbar__link--active {
-  color: #E0C097;
+  color: #ef7f1a;
 }
 
 .navbar__link--active::after {
@@ -126,7 +126,7 @@
 }
 
 .navbar__lang-link--active {
-  color: #E0C097;
+  color: #ef7f1a;
 }
 
 .navbar__lang-sep {

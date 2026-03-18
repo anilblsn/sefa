@@ -89,7 +89,7 @@
   top: 0;
   height: 100%;
   width: 0;
-  background-color: #E0C097;
+  background-color: #ef7f1a;
   z-index: 0;
   transition: width 0.4s ease;
 }
